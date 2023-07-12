@@ -1,0 +1,30 @@
+<p>list works! <strong>List</strong></p>
+
+<!-- so no ha borrado nada muetra el ng-template -->
+<!-- el ng remite al ng-template -->
+<div *ngIf="deletedHero; else notingWasDeleted">
+  <h3 class="mt-3">
+    Heroe Borrado :<small class="text-danger">{{ deletedHero }}</small>
+  </h3>
+</div>
+
+<!-- #referencia local- lo quita cuando borra algo -->
+<!-- ng -template es un div que no existe -->
+<<ng-template #notingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+<!-- Borrar Hero -->
+
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="revomeLastHero()"
+  class="btn btn-primary"
+>
+  Borrar Ultimo Heroe
+</button>
+
+<!--Duplicidad de Elementos **ngFor="let item of list" -->
+<h2 class="mt-3">Listado de Heroes</h2>
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
+</ul>
